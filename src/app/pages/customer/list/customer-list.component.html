@@ -1,0 +1,32 @@
+<input class="input-search" nz-input placeholder="Buscar..." [(ngModel)]="search" #txtTerm
+       (keyup)="searchChangeIn(txtTerm.value)"/>
+<nz-table #sortTable [nzData]="customers" nzTableLayout="fixed">
+  <thead>
+  <tr>
+    <th *ngFor="let column of listOfColumn" [nzSortFn]="column.compare">
+      {{ column.title }}
+    </th>
+    <th>
+      Options
+    </th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let item of sortTable.data">
+    <td>{{item.CustomerId}}</td>
+    <td>{{item.Name}}</td>
+    <td>{{item.EmailAddress}}</td>
+    <td>
+      <button nz-button nzType="primary"
+              [nzSize]="size"
+              nzShape="round"
+              (click)="onClickDetails(item)"
+      >
+        <i nz-icon nzType="file" nzTheme="outline"></i>
+        Detalles
+      </button>
+    </td>
+  </tr>
+
+  </tbody>
+</nz-table>

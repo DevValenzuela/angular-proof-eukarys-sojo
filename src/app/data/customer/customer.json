@@ -1,0 +1,32 @@
+[
+    {
+        "CustomerId": 1,
+        "Name": "Javier",
+        "EmailAddress": "javier@trainingymtest.com"
+    },
+    {
+        "CustomerId": 2,
+        "Name": "Nicolás",
+        "EmailAddress": "nicolas@trainingymtest.com"
+    },
+    {
+        "CustomerId": 3,
+        "Name": "Raquel",
+        "EmailAddress": "raquel@trainingymtest.com"
+    },
+    {
+        "CustomerId": 4,
+        "Name": "Paola",
+        "EmailAddress": "paola@trainingymtest.com"
+    },
+    {
+        "CustomerId": 5,
+        "Name": "Guillermo",
+        "EmailAddress": "guillermo@trainingymtest.com"
+    },
+    {
+        "CustomerId": 6,
+        "Name": "Milagros",
+        "EmailAddress": "milagros@trainingymtest.com"
+    }
+]

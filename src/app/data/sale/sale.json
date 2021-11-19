@@ -1,0 +1,72 @@
+[
+    {
+        "SaleID": 1,
+        "CustomerId": 1,
+        "Lines": [
+            {
+                "ProductId": 1,
+                "Units": 4
+            },
+            {
+                "ProductId": 2,
+                "Units": 3
+            }
+        ]
+    },
+    {
+        "SaleID": 2,
+        "CustomerId": 1,
+        "Lines": [
+            {
+                "ProductId": 1,
+                "Units": 20
+            },
+            {
+                "ProductId": 3,
+                "Units": 50
+            }
+        ]
+    },
+    {
+        "SaleID": 3,
+        "CustomerId": 2,
+        "Lines": [
+            {
+                "ProductId": 4,
+                "Units": 2
+            },
+            {
+                "ProductId": 5,
+                "Units": 1
+            }
+        ]
+    },
+    {
+        "SaleID": 4,
+        "CustomerId": 2,
+        "Lines": [
+            {
+                "ProductId": 2,
+                "Units": 400
+            },
+            {
+                "ProductId": 4,
+                "Units": 2
+            }
+        ]
+    },
+    {
+        "SaleID": 5,
+        "CustomerId": 2,
+        "Lines": [
+            {
+                "ProductId": 1,
+                "Units": 75
+            },
+            {
+                "ProductId": 5,
+                "Units": 125
+            }
+        ]
+    }
+]

@@ -1,0 +1,21 @@
+<input class="input-search" nz-input placeholder="Buscar..."
+       [(ngModel)]="search" #txtTerm
+       (keyup)="searchChangeIn(txtTerm.value)" />
+<nz-table #sortTable [nzData]="listProduct" nzTableLayout="fixed">
+  <thead>
+  <tr>
+    <th *ngFor="let column of listOfColumn" [nzSortFn]="column.compare">
+      {{ column.title }}
+    </th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let item of sortTable.data">
+    <td>{{item.ProductId}}</td>
+    <td>{{item.Name}}</td>
+    <td>{{item.Price}}</td>
+    <td>{{item.Weight}}</td>
+  </tr>
+
+  </tbody>
+</nz-table>

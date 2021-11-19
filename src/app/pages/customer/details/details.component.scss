@@ -1,0 +1,23 @@
+.list-container{
+  overflow-y: auto;
+  max-height: 80px;
+  .list-invoice{
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    padding: 10px 0;
+    margin: 0px;
+    .list-total{
+      margin-top: 10px;
+      border-top: 1px solid #bebebe;
+    }
+    .list-strong{
+      color: #001529;
+      font-weight: 800;
+    }
+  }
+
+}
+
+
+

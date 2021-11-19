@@ -1,0 +1,32 @@
+[
+    {
+        "ProductId": 1,
+        "Name": "Manzana",
+        "Price": 10.5,
+        "Weight": 1
+    },
+    {
+        "ProductId": 2,
+        "Name": "Platano",
+        "Price": 27.8,
+        "Weight": 2
+    },
+    {
+        "ProductId": 3,
+        "Name": "Leche",
+        "Price": 50,
+        "Weight": 7
+    },
+    {
+        "ProductId": 4,
+        "Name": "Pan",
+        "Price": 3,
+        "Weight": 3
+    },
+    {
+        "ProductId": 5,
+        "Name": "Galletas",
+        "Price": 24,
+        "Weight": 10
+    }
+]
