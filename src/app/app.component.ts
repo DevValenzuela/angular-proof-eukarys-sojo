@@ -7,4 +7,15 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   isCollapsed = false;
+
+  listMenu: any = [
+    {
+      path: '/customer',
+      title: 'Cliente',
+    },{
+      path: '/product',
+      title: 'Productos',
+    }
+  ]
+
 }
