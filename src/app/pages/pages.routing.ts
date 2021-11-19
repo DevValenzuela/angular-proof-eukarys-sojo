@@ -2,10 +2,6 @@ import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
 import {PagesComponent} from  './pages.component';
 
-import {DetailsComponent} from './customer/details/details.component';
-
-
-
 const routes: Routes = [
   {
     path: '',
@@ -13,7 +9,7 @@ const routes: Routes = [
     children:[
       {path: '', loadChildren: () => import('./customer/customer.module').then(m => m.CustomerModule)},
       {path: 'customer', loadChildren: () => import('./customer/customer.module').then(m => m.CustomerModule) },
-      {path: 'customer/:id', component: DetailsComponent},
+      {path: 'customer/:id',   loadChildren: () => import('./customer/details/details.module').then(m => m.DetailsModule)},
       {path: 'product', loadChildren: () => import('./products/products.module').then(m => m.ProductsModule )}
     ]
   }

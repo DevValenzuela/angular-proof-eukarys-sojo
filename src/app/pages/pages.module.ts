@@ -22,24 +22,13 @@ import {ProductPipe} from '../pipes/product.pipe';
 @NgModule({
   imports: [
     SharedModule,
-    NzTableModule,
-    NzInputModule,
-    NzButtonModule,
-    NzIconModule,
-    NzGridModule,
-    NzListModule,
-    NzDescriptionsModule,
-    NzDividerModule
   ],
   declarations: [
-    PagesComponent,
-    DetailsComponent,
-    ProductPipe
+    PagesComponent
   ],
   exports: [
-    PagesComponent,
-    DetailsComponent,
-    ProductPipe]
+    PagesComponent
+  ]
 })
 export class PagesModule {
 }
