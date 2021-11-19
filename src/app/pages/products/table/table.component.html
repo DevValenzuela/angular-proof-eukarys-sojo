@@ -1,5 +1,5 @@
 <input class="input-search" nz-input placeholder="Buscar..."
-       [(ngModel)]="search" #txtTerm
+     #txtTerm
        (keyup)="searchChangeIn(txtTerm.value)" />
 <nz-table #sortTable [nzData]="listProduct" nzTableLayout="fixed">
   <thead>

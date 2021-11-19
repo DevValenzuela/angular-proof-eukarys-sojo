@@ -3,11 +3,9 @@ import {NgModule} from '@angular/core';
 import {SharedModule} from 'src/app/shared/shared.module';
 
 import {PagesComponent} from './pages.component'
-import {CustomerComponent} from './customer/customer.component';
-import {CustomerListComponent} from "./customer/list/customer-list.component";
+
 import {DetailsComponent} from "./customer/details/details.component";
-import {ProductsComponent} from './products/products.component';
-import {TableComponent} from './products/table/table.component';
+
 
 import {NzTableModule} from 'ng-zorro-antd/table';
 import {NzInputModule} from 'ng-zorro-antd/input';
@@ -19,7 +17,7 @@ import {NzDescriptionsModule} from 'ng-zorro-antd/descriptions';
 import {NzDividerModule} from 'ng-zorro-antd/divider';
 
 
-import { ProductPipe } from '../pipes/product.pipe';
+import {ProductPipe} from '../pipes/product.pipe';
 
 @NgModule({
   imports: [
@@ -35,19 +33,11 @@ import { ProductPipe } from '../pipes/product.pipe';
   ],
   declarations: [
     PagesComponent,
-    CustomerComponent,
-    ProductsComponent,
-    CustomerListComponent,
-    TableComponent,
     DetailsComponent,
     ProductPipe
   ],
   exports: [
     PagesComponent,
-    CustomerComponent,
-    ProductsComponent,
-    CustomerListComponent,
-    TableComponent,
     DetailsComponent,
     ProductPipe]
 })
