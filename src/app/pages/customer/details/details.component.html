@@ -30,8 +30,8 @@
     <td class="list-general-col">
       <div class="list-container">
         <ul class="list-invoice" *ngFor="let list of data.Lines, last as isLast">
-          <li><span class="list-strong">Producto:  </span>{{ (list.ProductId | product).Name }}
-            <span>Cantidad: </span> {{ list.Units }}</li>
+          <li><span class="list-strong">Producto:  </span>{{ (list.ProductId | product).Name }}</li>
+          <li><span class="list-strong">Cantidad: </span> {{ list.Units }}</li>
           <li><span class="list-strong">Precio Uni: </span> $ {{ (list.ProductId | product).Price }}</li>
           <li><span class="list-strong">SubTotal: </span> $ {{ (list.ProductId | product).Price * list.Units }}</li>
         </ul>
