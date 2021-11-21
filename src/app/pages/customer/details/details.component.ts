@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewChildren, QueryList} from '@angular/core';
+import {Component, OnInit, ViewChildren, QueryList, OnDestroy} from '@angular/core';
 import {Router, ActivatedRoute} from '@angular/router';
 import {CustomerService} from '../../../services/customer/customer.service';
 import {combineLatest} from "rxjs";
@@ -7,7 +7,7 @@ import {ProductService} from "../../../services/product/product.service";
 import {Customer} from "../../../models/customer/customer";
 import {SaleService} from "../../../services/sale/sale.service";
 import {Sale} from "../../../models/sale/sale";
-import {Product} from "../../../models/product/product";
+import {Subscription} from 'rxjs';
 
 
 @Component({
@@ -15,12 +15,13 @@ import {Product} from "../../../models/product/product";
   templateUrl: './details.component.html',
   styleUrls: ['./details.component.scss']
 })
-export class DetailsComponent implements OnInit {
+export class DetailsComponent implements OnInit, OnDestroy {
 
   dataGeneral!: Customer[];
   dataSale!: Sale[];
   totalPrice!: number;
 
+  private querySubscription!: Subscription
 
   listOfColumn = [
     {
@@ -56,10 +57,11 @@ export class DetailsComponent implements OnInit {
   ngOnInit(): void {
     const {id} = this.activateRouter.snapshot.params;
 
-    combineLatest([
+    let group_consult = combineLatest([
       this.serviceCustomer.detailGeneralId(id),
       this.serviceSale.list(id),
-    ]).subscribe(([dataGeneral, dataSale]) => {
+    ])
+    this.querySubscription = group_consult.subscribe(([dataGeneral, dataSale]) => {
       this.dataGeneral = dataGeneral;
       this.dataSale = dataSale;
     })
@@ -74,7 +76,7 @@ export class DetailsComponent implements OnInit {
         let data: any[] = [];
         product.Lines.forEach(list => {
           let result = this.serviceProduct.productID(list.ProductId);
-          result.subscribe(result => {
+          this.querySubscription = result.subscribe(result => {
             data.push([{...result[0], amount: list.Units}])
           })
         })
@@ -105,5 +107,8 @@ export class DetailsComponent implements OnInit {
     sales_result.subscribe(item => console.log(item))
   }*/
 
+  ngOnDestroy() {
+    this.querySubscription?.unsubscribe();
+  }
 
 }

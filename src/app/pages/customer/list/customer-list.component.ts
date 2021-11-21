@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
 import { Customer } from 'src/app/models/customer/customer';
 import { CustomerService } from 'src/app/services/customer/customer.service';
 import { NzButtonSize } from 'ng-zorro-antd/button';
+import {Subscription} from "rxjs";
 
 
 @Component({
@@ -10,10 +11,12 @@ import { NzButtonSize } from 'ng-zorro-antd/button';
   templateUrl: './customer-list.component.html',
   styleUrls: ['./customer-list.component.scss']
 })
-export class CustomerListComponent implements OnInit {
+export class CustomerListComponent implements OnInit,  OnDestroy {
   size: NzButtonSize = 'large';
   customers: Customer[] = [];
   search?: string;
+
+  private querySubscription!: Subscription;
 
   listOfColumn = [
     {
@@ -45,13 +48,13 @@ export class CustomerListComponent implements OnInit {
 
     if(value.length >= 4){
       const search = this.customerService.searchList(value);
-      search.subscribe((item:Customer[]) => this.customers = item);
+      this.querySubscription = search.subscribe((item:Customer[]) => this.customers = item);
     }
   }
 
   reloadClients(){
     const data = this.customerService.list();
-    data.subscribe((item:Customer[]) => this.customers = item,
+    this.querySubscription =  data.subscribe((item:Customer[]) => this.customers = item,
       (err: any)=> console.log(err),
       ()=> console.log('Success fully data customers')
     )
@@ -61,6 +64,10 @@ export class CustomerListComponent implements OnInit {
     this.router.navigate([
       'customer', detailsCustomer.CustomerId
     ])
+  }
+
+  ngOnDestroy(){
+    this.querySubscription?.unsubscribe();
   }
 
 }
